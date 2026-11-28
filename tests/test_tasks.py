@@ -8,7 +8,7 @@ def test_create_task(client):
         }
     )
 
-    assert response.status_code == 200
+    assert response.status_code == 201
     assert response.json()["title"] == "Learn FastAPI"
     assert response.json()["completed"] is False
 
@@ -97,7 +97,7 @@ def test_users_cannot_access_each_others_tasks(client):
         }
     )
 
-    assert task_response.status_code == 200
+    assert task_response.status_code == 201
     task_id = task_response.json()["id"]
 
     # Register User B
